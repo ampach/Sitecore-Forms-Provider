@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{201750CE-6514-4A01-B548-F1CE391F4304}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataExchange.SitecoreForms.Provider</RootNamespace>
+    <AssemblyName>DataExchange.SitecoreForms.Provider</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>D:\Data\Inetpub\RAI\Website\bin\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Analytics, Version=11.18.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Analytics.NoReferences.9.0.180604\lib\NET462\Sitecore.Analytics.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Analytics.Model, Version=11.40.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Analytics.Model.NoReferences.9.0.180604\lib\NET462\Sitecore.Analytics.Model.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.DataExchange, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.DataExchange.NoReferences.2.0.180108\lib\NET462\Sitecore.DataExchange.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.DataExchange.DataAccess, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.DataExchange.DataAccess.NoReferences.2.0.180108\lib\NET462\Sitecore.DataExchange.DataAccess.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.DataExchange.Local">
+      <HintPath>D:\Data\Inetpub\RAI\Website\bin\Sitecore.DataExchange.Local.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.ExperienceForms, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.ExperienceForms.NoReferences.9.0.180604\lib\NET462\Sitecore.ExperienceForms.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.ExperienceForms.Client, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.ExperienceForms.Client.NoReferences.9.0.180604\lib\NET462\Sitecore.ExperienceForms.Client.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Framework.Messaging.Abstractions, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Framework.Messaging.Abstractions.2.0.0\lib\net462\Sitecore.Framework.Messaging.Abstractions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Framework.Messaging.Configuration">
+      <HintPath>D:\Data\Inetpub\RAI\Website\bin\Sitecore.Framework.Messaging.Configuration.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Kernel, Version=11.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Kernel.NoReferences.9.0.180604\lib\NET462\Sitecore.Kernel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Sitecore.Services.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Services.Core.NoReferences.9.0.180604\lib\NET462\Sitecore.Services.Core.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Actions\SyncDataSubmitAction.cs" />
+    <Compile Include="Actions\SyncDataSubmitModel.cs" />
+    <Compile Include="BatchRunner.cs" />
+    <Compile Include="DataAccess\FormEntryIdentifierValueAccessorConverter.cs" />
+    <Compile Include="DataAccess\FormFieldValueAccessorConverter.cs" />
+    <Compile Include="DataAccess\FormReferenceFieldValueAccessorConverter.cs" />
+    <Compile Include="Endpoints\FormsEndpointConverter.cs" />
+    <Compile Include="Endpoints\FormsEndpointTroubleshooter.cs" />
+    <Compile Include="Endpoints\FormsSettings.cs" />
+    <Compile Include="Extensions\EndpointExtensions.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="IBatchRunner.cs" />
+    <Compile Include="Initialize.cs" />
+    <Compile Include="Messaging\Handlers\SubmissionDataMessageHandler.cs" />
+    <Compile Include="Messaging\Models\SubmissionDataMessage.cs" />
+    <Compile Include="Messaging\Models\SyncSubmissionDataMessageBus.cs" />
+    <Compile Include="Models\FormSubmissionContext.cs" />
+    <Compile Include="Models\FormSubmissionEntry.cs" />
+    <Compile Include="Models\FormSyncData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadData\ReadDataSettings.cs" />
+    <Compile Include="ReadData\ReadEntityFromContextStepConverter.cs" />
+    <Compile Include="ReadData\ReadEntityFromContextStepProcessor.cs" />
+    <Compile Include="ReadData\ReadFormEntriesStepConverter.cs" />
+    <Compile Include="ReadData\ReadFormEntriesStepProcessor.cs" />
+    <Compile Include="ValueReaders\FormSubmissionContextPropertyValueReader.cs" />
+    <Compile Include="ValueReaders\FormSubmissionContextPropertyValueReaderConverter.cs" />
+    <Compile Include="ValueReaders\SitecoreFormEntryIdentifierValueReader.cs" />
+    <Compile Include="ValueReaders\SitecoreFormFieldValueReader.cs" />
+    <Compile Include="ValueReaders\SitecoreFormReferenceFieldValueReader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App_Config\Sitecore\DataExchange\SitecoreForms\DataExchange.Forms.Provider.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
