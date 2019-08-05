@@ -9,6 +9,7 @@ namespace DataExchange.SitecoreForms.Provider.ValueReaders
     public class SitecoreFormFieldValueReader : IValueReader
     {
         public Guid FieldId { get; protected set; }
+        public Sitecore.ExperienceForms.Data.Entities.FormEntry FormEntry { get; protected set; }
 
         public SitecoreFormFieldValueReader(Guid fieldId)
         {
@@ -20,7 +21,15 @@ namespace DataExchange.SitecoreForms.Provider.ValueReaders
             if (FieldId == Guid.Empty)
                 return false;
 
-            return source is FormSubmissionEntry entityModel && entityModel.FormEntry.Fields.Any(q => q.FieldItemId == FieldId);
+            var isTypeOk = source is FormSubmissionEntry || source is FormEntry;
+            if(!isTypeOk)
+                return false;
+
+            FormEntry = source is FormSubmissionEntry
+                ? ((FormSubmissionEntry)source).FormEntry
+                : (FormEntry)source;
+
+            return FormEntry != null && FormEntry.Fields.Any(q => q.FieldItemId == FieldId);
         }
 
         public virtual ReadResult Read(object source, DataAccessContext context)
@@ -28,8 +37,7 @@ namespace DataExchange.SitecoreForms.Provider.ValueReaders
             if (!this.CanRead(source, context))
                 return ReadResult.NegativeResult(DateTime.Now);
 
-            var entityModel = (FormSubmissionEntry)source;
-            var field = entityModel.FormEntry.Fields.First(q => q.FieldItemId == FieldId);
+            var field = FormEntry.Fields.First(q => q.FieldItemId == FieldId);
 
             var result = ReadFieldValue(field);
 

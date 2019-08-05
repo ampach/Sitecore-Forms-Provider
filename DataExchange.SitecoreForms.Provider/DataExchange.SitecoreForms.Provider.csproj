@@ -116,17 +116,22 @@
     <Compile Include="Models\FormSubmissionContext.cs" />
     <Compile Include="Models\FormSubmissionEntry.cs" />
     <Compile Include="Models\FormSyncData.cs" />
+    <Compile Include="PipelineBatches\FormProcessingVirtualPipelineBatchBuilder.cs" />
+    <Compile Include="Pipelines\SitecoreFormsPipelineConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadData\ReadDataSettings.cs" />
     <Compile Include="ReadData\ReadEntityFromContextStepConverter.cs" />
     <Compile Include="ReadData\ReadEntityFromContextStepProcessor.cs" />
     <Compile Include="ReadData\ReadFormEntriesStepConverter.cs" />
     <Compile Include="ReadData\ReadFormEntriesStepProcessor.cs" />
+    <Compile Include="ValueReaders\BooleanToCheckboxValueReader.cs" />
+    <Compile Include="ValueReaders\BooleanToCheckboxValueReaderConverter.cs" />
     <Compile Include="ValueReaders\FormSubmissionContextPropertyValueReader.cs" />
     <Compile Include="ValueReaders\FormSubmissionContextPropertyValueReaderConverter.cs" />
     <Compile Include="ValueReaders\SitecoreFormEntryIdentifierValueReader.cs" />
     <Compile Include="ValueReaders\SitecoreFormFieldValueReader.cs" />
     <Compile Include="ValueReaders\SitecoreFormReferenceFieldValueReader.cs" />
+    <Compile Include="VirtualPipelineBatchProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Config\Sitecore\DataExchange\SitecoreForms\DataExchange.Forms.Provider.config">

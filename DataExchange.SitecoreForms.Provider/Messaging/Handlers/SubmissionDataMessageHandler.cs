@@ -36,9 +36,11 @@ namespace DataExchange.SitecoreForms.Provider.Messaging.Handlers
                         }
                     }
                 };
+                
+                _batchRuunner.RunVirtualBatch(message.FormEntry.FormItemId.ToString("N"), new IPlugin[]{ formData });
 
-                _batchRuunner.Run(
-                    new ID(message.BatchId), new IPlugin[]{ formData });
+                //_batchRuunner.Run(
+                //    new ID(message.BatchId), new IPlugin[]{ formData });
             }
 
             return Task.CompletedTask;

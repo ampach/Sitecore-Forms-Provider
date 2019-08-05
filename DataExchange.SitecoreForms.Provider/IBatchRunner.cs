@@ -6,6 +6,7 @@ namespace DataExchange.SitecoreForms.Provider
 {
     public interface IBatchRunner
     {
+        void RunVirtualBatch(string formId, IPlugin[] plugins);
         void Run(ID batchItemId, IPlugin[] plugins);
     }
 }

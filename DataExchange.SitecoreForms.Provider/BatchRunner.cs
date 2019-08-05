@@ -1,4 +1,4 @@
-﻿using DataExchange.SitecoreForms.Provider.Models;
+﻿using DataExchange.SitecoreForms.Provider.PipelineBatches;
 using Sitecore.Data;
 using Sitecore.DataExchange;
 using Sitecore.DataExchange.Contexts;
@@ -6,7 +6,6 @@ using Sitecore.DataExchange.Local.Runners;
 using Sitecore.DataExchange.Models;
 using Sitecore.DataExchange.Plugins;
 using Sitecore.DataExchange.Runners;
-using Sitecore.ExperienceForms.Data.Entities;
 using Sitecore.Jobs;
 using Sitecore.Security.Accounts;
 using Sitecore.Services.Core.Extensions;
@@ -17,6 +16,35 @@ namespace DataExchange.SitecoreForms.Provider
     {
         private bool _isRunnerSet;
         private static IPipelineBatchRunner<Job> _runner;
+
+        public void RunVirtualBatch(string formId, IPlugin[] plugins)
+        {
+            var virtualBatches = FormProcessingVirtualPipelineBatchBuilder.GetVirtualPipelineBatches(formId);
+            if(virtualBatches == null)
+                return;
+
+            var pipelineBatchRunner = (InProcessPipelineBatchRunner)PipelineBatchRunner;
+
+            foreach (var virtualBatch in virtualBatches)
+            {
+                if (pipelineBatchRunner != null && (!pipelineBatchRunner.IsRunningRemotely(virtualBatch) || !PipelineBatchRunner.IsRunning(virtualBatch.Identifier)))
+                {
+                    const string category = "Data Exchange";
+
+                    var parameters = new object[]
+                    {
+                        virtualBatch,
+                        GetRunAsUser(),
+                        plugins
+                    };
+
+                    var options = new JobOptions(virtualBatch.Name, category, "Data Exchange Framework", this, "RunPipelineBatch", parameters);
+                    PipelineBatchRunner.CurrentProcesses[virtualBatch.Identifier] = JobManager.Start(options);
+                }
+            
+            }
+
+        }
 
         public void Run(ID batchItemId, IPlugin[] plugins)
         {

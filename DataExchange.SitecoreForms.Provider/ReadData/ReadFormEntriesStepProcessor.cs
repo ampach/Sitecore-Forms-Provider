@@ -64,6 +64,9 @@ namespace DataExchange.SitecoreForms.Provider.ReadData
 
         protected virtual IEnumerable<FormEntry> GetIterableData(FormsSettings settings, ReadDataSettings readDataSettings, IFormDataProvider formDataProvider)
         {
+            if (readDataSettings.To == DateTime.MinValue)
+                readDataSettings.To = DateTime.MaxValue;
+
             IEnumerable<FormEntry> formEntries =
                 formDataProvider.GetEntries(readDataSettings.FormID, readDataSettings.From, readDataSettings.To).OrderByDescending(q => q.Created);
 
